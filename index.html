@@ -26,7 +26,7 @@ body::before{
   display:flex; justify-content:space-between; align-items:center;
   padding:15px 10%;
   background: rgba(255,255,255,0);
-  position:relative; z-index:1100; /* <-- plus haut que les sections */
+  position:relative; z-index:1100;
 }
 .navbar .logo{font-size:1.8rem; color:#fff; font-weight:700;}
 .navbar .logo span{color:#ffeb3b;}
@@ -101,26 +101,33 @@ footer{text-align:center; padding:15px; background:#0078ff; color:#fff; margin-t
 
 /* ------ Mobile / Tablet ------ */
 @media (max-width: 992px){
-  /* Panneau mobile : transparent + flou + cliquable au-dessus de tout */
   .navbar ul{
     position:fixed; top:0; right:0; height:100vh; width:260px;
     padding:100px 20px 20px; flex-direction:column; gap:12px;
-    background: rgba(0,0,0,0.35);           /* <-- transparent */
+    background: rgba(0,0,0,0.35);
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    transform: translateX(100%);             /* caché par défaut */
+    transform: translateX(100%);
     transition: transform .3s ease;
-    z-index: 1150;                           /* <-- au-dessus des sections */
+    z-index: 1150;
   }
   .navbar ul.active{ transform: translateX(0); }
-  .navbar ul li a.btn-nav{ display:block; }  /* liens faciles à cliquer */
+  .navbar ul li a.btn-nav{ display:block; }
   .burger{ display:flex; }
 }
 
+/* Spécifique pour les téléphones */
 @media (max-width:768px){
   .hero h1{font-size:2rem;}
   .hero h2{font-size:1rem;}
   section h2{font-size:1.5rem;}
   .btn{padding:10px 20px;}
+
+  /* Ici on empile les boutons */
+  .container.hero a.btn {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
 }
 </style>
 </head>
@@ -182,18 +189,16 @@ footer{text-align:center; padding:15px; background:#0078ff; color:#fff; margin-t
 </footer>
 
 <script>
-/* Menu burger : ouverture/fermeture + accessibilité + fermeture au clic sur un lien + clic extérieur */
 const burger = document.getElementById('burger');
 const menu = document.getElementById('menu');
 
 burger.addEventListener('click', (e) => {
-  e.stopPropagation(); // Empêche la fermeture immédiate
+  e.stopPropagation();
   const open = menu.classList.toggle('active');
   burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   document.body.classList.toggle('no-scroll', open);
 });
 
-// Fermer le menu quand on clique sur un lien
 menu.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     menu.classList.remove('active');
@@ -202,7 +207,6 @@ menu.querySelectorAll('a').forEach(a => {
   });
 });
 
-// Fermer le menu quand on clique à l'extérieur
 document.addEventListener('click', (e) => {
   if (menu.classList.contains('active') && !menu.contains(e.target) && !burger.contains(e.target)) {
     menu.classList.remove('active');
