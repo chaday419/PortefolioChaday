@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact | Mon Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    background: url('porte.png') no-repeat center center fixed;
+    background-size: cover;
+    color:#fff;
+    line-height:1.6;
+}
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.5);
+    z-index:0;
+}
+h1,h2,h3{font-weight:700}
+a{text-decoration:none;color:inherit;}
+
+/* Navbar */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 10%;
+    background: rgba(255,255,255,0);
+    position:relative;
+    z-index:100;
+}
+.navbar .logo{
+    font-size:1.8rem;
+    color:#fff;
+    font-weight:700;
+}
+.navbar .logo span{
+    color:#ffeb3b;
+}
+.navbar ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+.navbar ul li a.btn-nav{
+    display:inline-block;
+    padding:10px 22px;
+    border-radius:25px;
+    font-weight:600;
+    color:#0078ff;
+    background: rgba(255,255,255,0.2);
+    box-shadow:0 2px 6px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+.navbar ul li a.btn-nav:hover,
+.navbar ul li a.btn-nav.active{
+    background:#0078ff;
+    color:#fff;
+    box-shadow:0 4px 12px rgba(0,0,0,0.25);
+    transform: translateY(-2px);
+}
+
+/* Burger menu */
+.menu-toggle{
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
+    gap:5px;
+}
+.menu-toggle span{
+    background:#fff;
+    height:3px;
+    width:28px;
+    border-radius:3px;
+    transition:0.3s;
+}
+
+/* Contact Section */
+section{
+    padding:60px 10%;
+    text-align:center;
+    background: rgba(255,255,255,0.1);
+    border-radius:15px;
+    backdrop-filter: blur(8px);
+    position:relative;
+    z-index:1;
+}
+section h2{
+    color:#ffeb3b;
+    font-size:2rem;
+    margin-bottom:20px;
+}
+.contact-info{
+    margin-bottom:30px;
+    font-size:1rem;
+}
+.contact-info p{
+    margin:5px 0;
+}
+
+/* Formulaire avec espace entre champs */
+form{
+    max-width:600px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px; /* espace entre champs et bouton */
+}
+input, textarea, button{
+    padding:12px 15px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+    font-size:1rem;
+}
+input, textarea{
+    margin-top:5px; /* espace au-dessus de chaque champ */
+}
+textarea{
+    resize:none;
+    height:120px;
+}
+button{
+    margin-top:5px; /* espace au-dessus du bouton */
+    background:#0078ff;
+    color:#fff;
+    border-radius:25px;
+    font-weight:600;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+button:hover{
+    background:#005fcc;
+}
+
+/* Social icons */
+.social-icons {
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}
+.social-icons a {
+    color:#fff;
+    font-size:1.8rem;
+    transition:.3s;
+}
+.social-icons a:hover {
+    color:#ffeb3b;
+    transform:scale(1.2);
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:15px;
+    background:#0078ff;
+    color:#fff;
+    margin-top:30px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .menu-toggle{
+        display:flex;
+    }
+    .navbar ul{
+        position:absolute;
+        top:70px;
+        right:10%;
+        background: rgba(0,0,0,0.7);
+        flex-direction:column;
+        padding:20px;
+        border-radius:10px;
+        display:none;
+        box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    }
+    .navbar ul.show{
+        display:flex;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <h1 class="logo">Chaday<span>.</span></h1>
+    <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul id="menu">
+        <li><a href="index.html" class="btn-nav">Accueil</a></li>
+        <li><a href="about.html" class="btn-nav">À propos</a></li>
+        <li><a href="skills.html" class="btn-nav">Compétences</a></li>
+        <li><a href="projects.html" class="btn-nav">Projets</a></li>
+        <li><a href="contact.html" class="btn-nav active">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Section Contact -->
+<section>
+    <h2>Contactez-moi</h2>
+    <div class="contact-info">
+        <p>Email : <a href="mailto:chadaykabongo@gmail.com">chadaykabongo@gmail.com</a></p>
+        <p>Téléphone : +243 840 456 329</p>
+        <p>Localisation: Kinshasa, RDC</p>
+    </div>
+    <form action="#" method="post">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <!-- Social Media -->
+    <div class="social-icons">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+</section>
+
+<footer>
+    <p>2025 Chaday. Tous droits réservés.</p>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+});
+document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+        menu.classList.remove('show');
+    }
+});
+</script>
+
+</body>
+</html>
